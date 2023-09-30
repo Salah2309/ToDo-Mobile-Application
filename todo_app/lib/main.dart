@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'screens/home.dart';
+import 'screens/login.dart';
 
 void main() => runApp(const MyApp());
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         
       ),
-      home: const Home(),
+      home: Login(),
     );
   }
 }

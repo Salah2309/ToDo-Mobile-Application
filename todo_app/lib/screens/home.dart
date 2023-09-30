@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: _buildAppBar(),
       endDrawer: const AppDrawer(),
-      backgroundColor: Theme.of(context).brightness == Brightness.dark ? Colors.black : Colors.white60,
+      backgroundColor: Theme.of(context).brightness == Brightness.dark ? Colors.black : Colors.white70,
       body: Stack(
         children: [
           Container(
@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
             child: Column(
               children: [
                 Container(
-                  child: _SearchBox(),
+                  child:  _searchbox(),
                 ),
                 Container(alignment: Alignment.centerLeft, child: _todoText()),
                 Expanded(
@@ -182,7 +182,7 @@ class _HomeState extends State<Home> {
   }
 
   //Search Box
-  Container _SearchBox() {
+  Container _searchbox() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
