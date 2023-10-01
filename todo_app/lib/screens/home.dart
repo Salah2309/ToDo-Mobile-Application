@@ -66,17 +66,17 @@ class _HomeState extends State<Home> {
 
   Expanded _todoNotes() {
     return Expanded(
-          child: ListView(
-            children: [
-              for (ToDo obj in _foundToDo.reversed)
-                ToDoItem(
-                  todo: obj, 
-                  onToDoChange: _handleToDoChange,
-                  OnDeleteItem: _handleDelete,
-                ),
-            ],
-          )
-        );
+      child: ListView(
+        children: [
+          for (ToDo obj in _foundToDo.reversed)
+            ToDoItem(
+              todo: obj, 
+              onToDoChange: _handleToDoChange,
+              OnDeleteItem: _handleDelete,
+            ),
+        ],
+      )
+    );
   }
 
   //Switches Todo Item
