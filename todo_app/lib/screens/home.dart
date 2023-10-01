@@ -104,7 +104,7 @@ class _HomeState extends State<Home> {
 
     if (toDo.isNotEmpty && checker == 0) {
       setState(() {
-        todoList.add(ToDo(id: DateTime.now().microsecondsSinceEpoch.toString(), todoText: toDo));
+        todoList.add(ToDo(id: DateTime.now().microsecondsSinceEpoch, todoText: toDo));
       });
       _todoController.clear();
     }
