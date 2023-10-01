@@ -5,6 +5,8 @@ class Login extends StatelessWidget {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
+  Login({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

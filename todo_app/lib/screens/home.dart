@@ -67,6 +67,7 @@ class _HomeState extends State<Home> {
   Expanded _todoNotes() {
     return Expanded(
       child: ListView(
+        shrinkWrap: true,
         children: [
           for (ToDo obj in _foundToDo.reversed)
             ToDoItem(
