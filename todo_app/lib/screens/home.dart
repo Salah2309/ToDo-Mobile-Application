@@ -18,6 +18,7 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
+    todoList.sort((a, b) => b.id.compareTo(a.id));
     _foundToDo = todoList;
     super.initState();
   }
@@ -69,7 +70,8 @@ class _HomeState extends State<Home> {
       child: ListView(
         shrinkWrap: true,
         children: [
-          for (ToDo obj in _foundToDo.reversed)
+          
+          for (ToDo obj in _foundToDo)
             ToDoItem(
               todo: obj, 
               onToDoChange: _handleToDoChange,
@@ -88,7 +90,7 @@ class _HomeState extends State<Home> {
   }
 
   //Deletes Item
-  void _handleDelete(String id) {
+  void _handleDelete(int id) {
     setState(() {
       todoList.removeWhere((item) => item.id == id);
     });
@@ -105,6 +107,7 @@ class _HomeState extends State<Home> {
     if (toDo.isNotEmpty && checker == 0) {
       setState(() {
         todoList.add(ToDo(id: DateTime.now().microsecondsSinceEpoch, todoText: toDo));
+        todoList.sort((a, b) => b.id.compareTo(a.id));
       });
       _todoController.clear();
     }

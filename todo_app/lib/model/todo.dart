@@ -1,7 +1,7 @@
 class ToDo {
   //WARN: with enough time passed epoch time can pass Int size!
   //Crash ETA: January 19, 2038. 3:14:01 AM GMT
-  int? id;
+  int id;
   String? todoText;
   bool isDone;
 
