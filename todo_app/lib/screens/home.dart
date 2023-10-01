@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import '../model/todo.dart';
 import '../widgets/todo_item.dart';
@@ -32,43 +30,53 @@ class _HomeState extends State<Home> {
       backgroundColor: Theme.of(context).brightness == Brightness.dark ? Colors.black : Colors.white70,
       body: Stack(
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-            child: Column(
-              children: [
-                Container(
-                  child:  _searchbox(),
-                ),
-                Container(alignment: Alignment.centerLeft, child: _todoText()),
-                Expanded(
-                  child: ListView(
-                    children: [
-                      for (ToDo todoo in _foundToDo.reversed)
-                        ToDoItem(
-                          todo: todoo,
-                          onToDoChange: _handleToDoChange,
-                          OnDeleteItem: _handleDelete,
-                        ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Row(
-              children: [
-                Expanded(
-                  child: _addTaskTextBox(),
-                ),
-                _addTaskButton(),
-              ],
-            ),
-          ),
+          _centerContainer(),
+          _bottomContainer(),
         ],
-      ),
+      )  
     );
+  }
+
+  Align _bottomContainer() {
+    return Align(
+          alignment: Alignment.bottomCenter,
+          child: Row(
+            children: [
+              Expanded(
+                child: _addTaskTextBox(),
+              ),
+              _addTaskButton(),
+            ],
+          ),
+        );
+  }
+
+  Container _centerContainer() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      child: Column(
+        children: [
+          _searchbox(),
+          _todoText(),
+          _todoNotes(),
+        ],
+      ),  
+    );
+  }
+
+  Expanded _todoNotes() {
+    return Expanded(
+          child: ListView(
+            children: [
+              for (ToDo obj in _foundToDo.reversed)
+                ToDoItem(
+                  todo: obj, 
+                  onToDoChange: _handleToDoChange,
+                  OnDeleteItem: _handleDelete,
+                ),
+            ],
+          )
+        );
   }
 
   //Switches Todo Item
@@ -119,6 +127,7 @@ class _HomeState extends State<Home> {
   // "TO DO: "
   Container _todoText() {
     return Container(
+      alignment: Alignment.centerLeft,
       margin: const EdgeInsets.only(top: 15, bottom: 15),
       child: const Text(
         'To-Do:',
