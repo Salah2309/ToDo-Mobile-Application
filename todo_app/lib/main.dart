@@ -13,14 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ToDo app',
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.dark,
       theme: ThemeData(
         brightness: Brightness.light,
-        
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        
       ),
       home: Login(),
     );

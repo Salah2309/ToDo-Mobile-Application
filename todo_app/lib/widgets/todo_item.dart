@@ -28,6 +28,7 @@ class ToDoItem extends StatelessWidget{
             fontSize: 16,
             color: const Color(0xFF3A3A3A),
             decoration: todo.isDone ? TextDecoration.lineThrough : null,
+            decorationColor: Colors.black,
           ),
         ),
         trailing: Container(
